@@ -1536,11 +1536,11 @@ color: #e4ca63 !important;
   text-align: center;
 }
 .aam_left {
-  width: 61%;
+  width: 61vw;
   padding-right: 10px;
 }
 .aam_award {
-  width: 39%;
+  width: 39vw;
   margin-right: 28px;
 }
 .aam_list,
