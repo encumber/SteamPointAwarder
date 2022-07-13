@@ -158,6 +158,7 @@
         btnArea.appendChild(btnSwitch);
         btnArea.appendChild(genSpace());
 
+        //const panelArea = document.querySelector('.profile_customization_area');
         const panelArea = document.querySelector('.profile_leftcol');
         const panelMain = genDiv('aam_panel');
         panelMain.style.display = 'none';
@@ -1494,13 +1495,25 @@ color: #e4ca63 !important;
 	background: url( 'https://community.akamai.steamstatic.com/public/images/profile/holidayprofile/header_front.png' ) no-repeat center top;
 	pointer-events: none;
 }
+@media only screen and (max-width: 909px) {
+  .headeroverried {
+    min-width: 40em !important;
+  }
+  .profile_leftcol {
+  padding-top: 5em
+  }
+}
 
+@media only screen and (min-width: 910px) {
+  .headeroverried {
+    min-width: 30vw !important;
+  }
+}
 
 .headeroverried {
-    min-width: 40em !important;
     font-weight: 200 !important;
     line-height: normal !important;
-    background: linear-gradient(90deg, var(--gradient-showcase-header-left) 0%, var(--color-showcase-header) 63%) !important;
+    background: linear-gradient(90deg, var(--gradient-showcase-header-left) 0vw, var(--color-showcase-header) 63vw) !important;
     color: #ffffff !important;
     font-size: 16px !important;
     white-space: normal !important;
@@ -1515,7 +1528,7 @@ color: #e4ca63 !important;
   z-index: 500 !important;
 }
 .aam_busy {
-  width: 100%;
+  width: 100vw;
   height: calc(26vh);
   z-index: 700;
   position: absolute;
