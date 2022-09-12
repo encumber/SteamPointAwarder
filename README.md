@@ -5,6 +5,7 @@
 - One click adding of currently logged in account
 - Theme compatability to make it look better
 - Profile, Review, Screenshot, and Artwork awarding for more chances to award
+- Award any user's Favorite Screenshots & Artworks using `favoritesawarder.js`
 - Easy to install with tampermonkey
 
 #### Javascript to swap between max points or max awards　
