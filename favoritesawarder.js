@@ -3,7 +3,8 @@
 // @version      2.1
 // @description  Steam Favorites Awarder
 // @author       Nitoned
-// @include      /https://steamcommunity\.com/(id|profiles)/[^\/]+/?$/
+// @match        https://steamcommunity.com/*
+// @match        https://*steampowered.com/*
 // @connect      steamcommunity.com
 // @connect      steampowered.com
 // @license      AGPL-3.0
