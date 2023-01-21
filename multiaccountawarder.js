@@ -3,7 +3,8 @@
 // @version      2.1
 // @description  Steam Multi Account Awarder
 // @author       Nitoned
-// @include      /https://steamcommunity\.com/(id|profiles)/[^\/]+/?$/
+// @match        https://steamcommunity.com/*
+// @match        https://*steampowered.com/*
 // @connect      steamcommunity.com
 // @connect      steampowered.com
 // @license      AGPL-3.0
@@ -27,8 +28,8 @@
     let GPanel = {};
     //Dict
     let GObjs = {};
-    //var pointType = "cheap"; //most awards per points (good for leveling/if the person has an excessive amount of awardable items)
-    let pointType = "expensive"; //most points per awards (good for low awardable type accounts)
+    var pointType = "cheap"; //most awards per points (good for leveling/if the person has an excessive amount of awardable items)
+    //let pointType = "expensive"; //most points per awards (good for low awardable type accounts)
 
 
     //init
@@ -1579,7 +1580,7 @@ color: #e4ca63 !important;
   height: calc(100% - 85px);
   width: calc(100% - 45px);
   resize: none;
-  font-size: 12px;
+  font-size: 11px;
 }
 .aam_left > div > *,
 .aam_award:not(span, button) > * {
