@@ -1,3 +1,6 @@
+###Manifest V3 Complient
+
+
 ### Features
 
 - History of who you've sent points to, along with their steam ID and how many points were sent
