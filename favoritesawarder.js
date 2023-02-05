@@ -234,7 +234,7 @@
 
 
         const awardPanel = genDiv('aam_award');
-        const feedbackLink = genA('Feedback', 'https://github.com/ValveIndex/SteamPointAwarder/issues');
+        const feedbackLink = genA('Feedback', 'https://github.com/encumber/SteamPointAwarder/issues');
         const awardBot = genSelect([['---Not Selected---', '']], null);
         const awardSteamID = genInput('', 'Steam ID 64', false);
         const awardPoints = genInput('', 'Points Recieved', true);
