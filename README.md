@@ -33,3 +33,5 @@ var pointType = "expensive";
 - [ ] Steam Deck Plugin Manager Compatibility (IDK which one im going to go with)
 - [ ] Button to swap between all awards or just the cheapest awards (cheapest awards are typically used when leveling someone else)
 - [ ] More coming soon...
+
+origional author: [chr233](https://github.com/chr233/GM_Scripts/blob/master/Steam/Auto_Award_Muli.js) modified by myself before chr233 added english as a language to their script & added some customization to have it look nicer.
