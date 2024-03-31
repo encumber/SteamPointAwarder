@@ -1225,36 +1225,37 @@
         return new Promise(resolve => setTimeout(resolve, ms))
     }
     //====================================================================================
-    function getMySteamID() {
+     function getMySteamID() {
         return new Promise((resolve, reject) => {
-            $http.getText('https://store.steampowered.com/account/?l=english')
-                .then((text) => {
-                    let match1 = text.match(/pageheader">([\s\S]+)'s account/);
-                    let match2 = text.match(/Steam ID: (\d+)/);
+            try {
+                const steamID = g_steamID;
+                const nick = document.querySelector("div.playerAvatar>a>img")?.getAttribute("alt");
 
-                    if (match1 && match2) {
-                        resolve({ nick: match1[1], steamID: match2[1] });
-                    } else {
-                        reject('[STEAM] Not Logged in, login and try again');
-                    }
-                })
-                .catch((reason) => {
-                    reject(reason);
-                });
+                if (nick && steamID) {
+                    resolve({ nick, steamID });
+                } else {
+                    reject(t('steamStoreNotLogin'));
+                }
+            } catch (err) {
+                reject(err);
+            }
         });
     }
     function getToken() {
         return new Promise((resolve, reject) => {
-            $http.get('https://store.steampowered.com/pointssummary/ajaxgetasyncconfig')
-                .then(({ data }) => {
-                    if (isEmptyObject(data)) {
-                        reject('[STEAM] Not Logged in, login and try again');
-                    }
-                    resolve(data.webapi_token);
-                })
-                .catch((reason) => {
-                    reject(reason);
-                });
+            try {
+                let token = document.querySelector("#application_config")?.getAttribute("data-loyalty_webapi_token");
+
+                if (isEmptyObject(token)) {
+                    reject(t('steamStoreNotLogin'));
+                }
+                else {
+                    token =token.replace(/"/g, "");
+                    resolve(token);
+                }
+            } catch (err) {
+                reject(err);
+            }
         });
     }
     function getPoints(steamID, token) {
