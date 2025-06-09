@@ -1225,22 +1225,28 @@
         return new Promise(resolve => setTimeout(resolve, ms))
     }
     //====================================================================================
-     function getMySteamID() {
-        return new Promise((resolve, reject) => {
-            try {
-                const steamID = g_steamID;
-                const nick = document.querySelector("div.playerAvatar>a>img")?.getAttribute("alt");
+function getMySteamID() {
+    return new Promise((resolve, reject) => {
+        $http.getText('https://store.steampowered.com/account/?l=english')
+            .then((text) => {
+                // 1) Match the <h2 class="pageheader youraccount_pageheader">Nick's Account</h2>
+                //    We use a case-insensitive flag (/i) and allow the combined class.
+                let match1 = text.match(/youraccount_pageheader">([^<]+)'s Account/i);
 
-                if (nick && steamID) {
-                    resolve({ nick, steamID });
+                // 2) Match the <div class="youraccount_steamid">Steam ID: 7656119XXXXXXXXXX</div>
+                let match2 = text.match(/Steam ID:\s*(\d+)/);
+
+                if (match1 && match2) {
+                    resolve({ nick: match1[1], steamID: match2[1] });
                 } else {
-                    reject(t('steamStoreNotLogin'));
+                    reject('[STEAM] Not Logged in, login and try again');
                 }
-            } catch (err) {
-                reject(err);
-            }
-        });
-    }
+            })
+            .catch((reason) => {
+                reject(reason);
+            });
+    });
+}
     function getToken() {
         return new Promise((resolve, reject) => {
             try {
