@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Favorites Awarder
-// @version      2.1
+// @version      2.2
 // @description  Steam Favorites Awarder
 // @author       Nitoned
 // @match        https://steamcommunity.com/*
@@ -1253,10 +1253,10 @@ function getMySteamID() {
                 let token = document.querySelector("#application_config")?.getAttribute("data-loyalty_webapi_token");
 
                 if (isEmptyObject(token)) {
-                    reject(t('steamStoreNotLogin'));
+                    reject('[STEAM] Not Logged in, login and try again');
                 }
                 else {
-                    token =token.replace(/"/g, "");
+                    token = token.replace(/"/g, "");
                     resolve(token);
                 }
             } catch (err) {
